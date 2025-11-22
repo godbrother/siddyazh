@@ -1,0 +1,124 @@
+﻿<!-- FILE: loans.html -->
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>Loan Products — Siddyazh Enterprises</title>
+ <meta name="description" content="Siddyazh Enterprises — Loan products and details. Business Loans, LAP, Home Loans, OD/CC & CGTMSE.">
+ <meta name="theme-color" content="#0066cc">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+ <header class="site-header">
+ <div class="container header-inner">
+ <a href="index.html" class="brand"><img src="assets/logo.svg" alt="Siddyazh" class="logo"></a>
+ <nav class="nav">
+ <a href="index.html">Home</a>
+ <a href="loans.html">Loans</a>
+ <a href="about.html">About</a>
+ <a href="contact.html" class="cta">Contact</a>
+ </nav>
+ <button class="mobile-toggle" aria-label="Open menu">☰</button>
+ </div>
+ </header>
+
+ <main class="container">
+ <h1 id="apply">Loan Products</h1>
+
+ <section id="business" class="loan-detail">
+ <h2>Unsecured Business Loan</h2>
+ <p>We provide unsecured business loans for working capital and expansion with quick profile assessment and multiple lender options.</p>
+ <h3>Eligibility</h3>
+ <ul>
+ <li>Minimum12 months in business (varies by lender)</li>
+ <li>Minimum turnover depending on product</li>
+ </ul>
+ <h3>Required documents</h3>
+ <ul>
+ <li>ID proof, address proof</li>
+ <li>Business proof, bank statements</li>
+ </ul>
+ </section>
+
+ <section id="lap" class="loan-detail">
+ <h2>Loan Against Property (LAP)</h2>
+ <p>Secured financing using residential or commercial property as collateral. We assist with valuation and lender matching.</p>
+ </section>
+
+ <section id="home" class="loan-detail">
+ <h2>Home Loan</h2>
+ <p>Buy, build or renovate — support through documentation, sanction and disbursement stages.</p>
+ </section>
+
+ <section id="odcc" class="loan-detail">
+ <h2>OD / CC Facility</h2>
+ <p>Flexible overdraft and cash-credit facilities for working capital management.</p>
+ </section>
+
+ <section id="cgtmse" class="loan-detail">
+ <h2>CGTMSE Loan</h2>
+ <p>Government-backed MSME loan options with collateral-free guarantees under CGTMSE schemes.</p>
+ </section>
+
+ <section id="calculator" class="loan-detail">
+ <h2>Loan Calculator</h2>
+ <p>Calculate EMI, total interest and total payable amount.</p>
+ <form id="emiForm">
+ <label>Loan amount (₹)<input type="number" id="amount" required></label>
+ <label>Annual interest rate (%)<input type="number" step="0.01" id="rate" required></label>
+ <label>Tenure (years)<input type="number" id="years" required></label>
+ <button type="submit" class="btn">Calculate EMI</button>
+ </form>
+ <div id="emiResult" style="margin-top:12px"></div>
+ </section>
+
+ </main>
+
+ <!-- WhatsApp floating button -->
+ <a class="whatsapp-float" href="https://wa.me/919840674314" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+
+ <footer class="site-footer">
+ <div class="container footer-inner">
+ <div class="foot-left">
+ <img src="assets/logo.svg" alt="Siddyazh" class="logo-sm">
+ <p>© <span id="year"></span> SIDDYAZH ENTERPRISES. All rights reserved.</p>
+ <p>Proprietor: Mr. Ayyappan • Phone: +91-9840674314 • Email: ayappan802@gmail.com</p>
+ <p>No.20, Annai Illam, Randran Nagar Main Road, Keelkattalai, Chennai –600117</p>
+ </div>
+ <div class="foot-right">
+ <nav>
+ <a href="about.html">About</a>
+ <a href="contact.html">Contact</a>
+ <a href="privacy.html">Privacy Policy</a>
+ </nav>
+ </div>
+ </div>
+ </footer>
+
+ <script>
+ document.getElementById('year').textContent = new Date().getFullYear();
+
+ // EMI Calculator
+ document.getElementById('emiForm').addEventListener('submit', function(e){
+ e.preventDefault();
+ var P = parseFloat(document.getElementById('amount').value);
+ var annualRate = parseFloat(document.getElementById('rate').value);
+ var years = parseFloat(document.getElementById('years').value);
+ if(!P || !annualRate || !years){ alert('Please fill all fields'); return; }
+ var r = annualRate /12 /100;
+ var n = years *12;
+ var emi = (P * r * Math.pow(1+r,n)) / (Math.pow(1+r,n)-1);
+ var total = emi * n;
+ var interest = total - P;
+ document.getElementById('emiResult').innerHTML = '<strong>EMI:</strong> ₹'+emi.toFixed(2)+' <br><strong>Total Interest:</strong> ₹'+interest.toFixed(2)+' <br><strong>Total Payable:</strong> ₹'+total.toFixed(2);
+ });
+
+ // Mobile menu toggle
+ document.querySelector('.mobile-toggle').addEventListener('click', function(){
+ document.querySelector('.nav').classList.toggle('open');
+ });
+ </script>
+</body>
+</html>

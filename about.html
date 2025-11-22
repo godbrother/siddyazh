@@ -1,0 +1,96 @@
+﻿<!-- FILE: about.html -->
+<!doctype html>
+<html lang="en">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width,initial-scale=1">
+ <title>About Siddyazh Enterprises</title>
+ <meta name="description" content="Siddyazh Enterprises — Loan consultant in Chennai. Business Loans, LAP, Home Loans, OD/CC & CGTMSE with fast approvals and transparent process.">
+ <meta name="theme-color" content="#0066cc">
+ <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+ <header class="site-header">
+ <div class="container header-inner">
+ <a href="index.html" class="brand"><img src="assets/logo.svg" alt="Siddyazh" class="logo"></a>
+ <nav class="nav">
+ <a href="index.html">Home</a>
+ <a href="loans.html">Loans</a>
+ <a href="about.html">About</a>
+ <a href="contact.html" class="cta">Contact</a>
+ </nav>
+ <button class="mobile-toggle" aria-label="Open menu">☰</button>
+ </div>
+ </header>
+
+ <main class="container">
+ <h1>About Us</h1>
+ <p>Siddyazh Enterprises is a trusted loan consultancy firm led by Mr. Ayyappan, who carries12+ years of banking experience and4+ years of loan consultancy experience with a track record of400+ satisfied customers.</p>
+
+ <section class="team">
+ <h2>Proprietor Profile — Mr. Ayyappan</h2>
+ <p>Mr. Ayyappan, the founder of Siddyazh Enterprises, has12+ years of strong banking experience working with top institutions such as Axis Bank, IndusInd Bank, RAKBANK (Dubai), IIFL Finance and RBL Bank. He also has4 years of professional experience as a Loan Consultant and has successfully served400+ happy customers with fast and transparent loan solutions.</p>
+ <h3>Why choose his expertise?</h3>
+ <ul>
+ <li>Deep banking knowledge and lender connections</li>
+ <li>Proven approval experience across multiple lenders</li>
+ <li>End-to-end support from documentation to disbursement</li>
+ </ul>
+ </section>
+
+ <section class="services">
+ <h2>Our Services</h2>
+ <ul>
+ <li>Unsecured Business Loan</li>
+ <li>Loan Against Property (LAP)</li>
+ <li>Home Loan</li>
+ <li>OD/CC Facility</li>
+ <li>CGTMSE Loan</li>
+ </ul>
+ </section>
+
+ <section class="why">
+ <h2>Key Facts</h2>
+ <ul>
+ <li>Tie-ups with46 Banks & NBFCs</li>
+ <li>12+ Years Banking Experience</li>
+ <li>4+ Years Loan Consultancy Experience</li>
+ <li>400+ Happy Customers</li>
+ <li>100% Transparent Process</li>
+ </ul>
+ </section>
+
+ </main>
+
+ <!-- WhatsApp floating button -->
+ <a class="whatsapp-float" href="https://wa.me/919840674314" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+
+ <footer class="site-footer">
+ <div class="container footer-inner">
+ <div class="foot-left">
+ <img src="assets/logo.svg" alt="Siddyazh" class="logo-sm">
+ <p>© <span id="year"></span> SIDDYAZH ENTERPRISES. All rights reserved.</p>
+ <p>Proprietor: Mr. Ayyappan • Phone: +91-9840674314 • Email: ayappan802@gmail.com</p>
+ <p>No.20, Annai Illam, Randran Nagar Main Road, Keelkattalai, Chennai –600117</p>
+ </div>
+ <div class="foot-right">
+ <nav>
+ <a href="about.html">About</a>
+ <a href="contact.html">Contact</a>
+ <a href="privacy.html">Privacy Policy</a>
+ </nav>
+ </div>
+ </div>
+ </footer>
+
+ <script>
+ // Mobile menu toggle
+ document.querySelector('.mobile-toggle').addEventListener('click', function(){
+ document.querySelector('.nav').classList.toggle('open');
+ });
+ // Year
+ document.getElementById('year').textContent = new Date().getFullYear();
+ </script>
+</body>
+</html>

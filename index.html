@@ -1,0 +1,290 @@
+﻿<!--
+Project: Siddyazh - Static website scaffold
+Files included below (copy each into separate files in your project):
+- index.html
+- loans.html
+- about.html
+- contact.html
+- css/styles.css
+- assets/ (place logo.png, hero.jpg, icons etc.)
+
+Notes:
+- Replaced placeholder content with client-provided copy for SIDDYAZH ENTERPRISES.
+- This is plain HTML + CSS (no frameworks) and is responsive.
+- To preview: put files in a folder and open index.html in a browser.
+- To deploy: GitHub Pages, Netlify, Vercel or Namecheap hosting.
+-->
+
+<!-- FILE: index.html (updated hero graphic inlined) -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Siddyazh Enterprises — Stop Here to Searching Loan</title>
+  <meta name="description" content="Siddyazh Enterprises — Loan consultant in Chennai. Business Loans, LAP, Home Loans, OD/CC & CGTMSE with fast approvals and transparent process.">
+  <meta name="keywords" content="Loan consultant in Chennai, Business loan consultant Chennai, LAP loan agent Chennai, OD CC loan consultant, CGTMSE loan consultant Chennai, Best loan agency in Chennai, Low interest loan consultant, MSME loan expert, SME loan consultant, Home loan agent Chennai">
+  <meta name="theme-color" content="#0066cc">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand">
+        <img src="assets/logo.svg" alt="Siddyazh Enterprises" class="logo">
+      </a>
+      <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="loans.html">Loans</a>
+        <a href="about.html">About</a>
+        <a href="contact.html" class="cta">Contact</a>
+      </nav>
+      <button class="mobile-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <h1>Stop Here to Searching Loan</h1>
+          <p>We make your loan journey simple, fast, and stress-free. Business Loans • LAP • Home Loans • OD/CC • CGTMSE</p>
+          <div class="hero-ctas">
+            <a href="loans.html#apply" class="btn primary">Apply Now</a>
+            <a href="contact.html" class="btn ghost">Talk to an Advisor</a>
+          </div>
+          <p class="muted">With tie-ups across 46 leading banks & NBFCs. Call: +91-9840674314</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <!-- Inline SVG hero graphic to avoid external file loading issues -->
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="001200700" width="100%" height="auto" role="img" aria-label="Hero illustration">
+            <defs>
+              <linearGradient id="bg" x1="0" x2="1">
+                <stop offset="0" stop-color="#f6f9fc"/>
+                <stop offset="1" stop-color="#ffffff"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" x2="1">
+                <stop offset="0" stop-color="#0d6efd"/>
+                <stop offset="1" stop-color="#4f8cff"/>
+              </linearGradient>
+              <filter id="s" x="-30%" y="-30%" width="160%" height="160%">
+                <feDropShadow dx="0" dy="8" stdDeviation="20" flood-color="#0d6efd" flood-opacity="0.08"/>
+              </filter>
+            </defs>
+
+            <rect width="1200" height="700" fill="url(#bg)" rx="20"/>
+
+            <g transform="translate(90,80)" filter="url(#s)">
+              <rect x="0" y="0" width="380" height="240" rx="18" fill="#fff" />
+              <rect x="18" y="18" width="80" height="80" rx="12" fill="url(#g2)" />
+              <text x="110" y="60" font-family="Inter, Arial" font-size="22" font-weight="700" fill="#0f1724">Business Loans</text>
+              <text x="18" y="120" font-family="Inter" font-size="14" fill="#6b7280">Fast approvals, multiple lenders</text>
+            </g>
+
+            <g transform="translate(420,40)" filter="url(#s)">
+              <rect x="0" y="40" width="420" height="320" rx="18" fill="#fff" />
+              <circle cx="60" cy="100" r="44" fill="url(#g2)"/>
+              <text x="130" y="105" font-family="Inter" font-size="22" font-weight="700" fill="#0f1724">Loan Against Property</text>
+              <text x="22" y="160" font-family="Inter" font-size="14" fill="#6b7280">Competitive LTV & flexible tenor</text>
+            </g>
+
+            <g transform="translate(880,220)" filter="url(#s)">
+              <rect x="0" y="40" width="260" height="200" rx="18" fill="#fff" />
+              <rect x="18" y="18" width="64" height="64" rx="12" fill="#f3f7ff" stroke="url(#g2)" stroke-width="2" />
+              <text x="100" y="70" font-family="Inter" font-size="18" font-weight="700" fill="#0f1724">CGTMSE Loans</text>
+              <text x="18" y="110" font-family="Inter" font-size="13" fill="#6b7280">Collateral-free options for MSMEs</text>
+            </g>
+
+            <g transform="translate(80,360)">
+              <text x="0" y="0" font-family="Inter" font-size="42" font-weight="700" fill="#0f1724">Stop Here to Searching Loan</text>
+              <text x="0" y="44" font-family="Inter" font-size="18" fill="#6b7280">We make your loan journey simple, fast, and stress-free.</text>
+            </g>
+
+            <g transform="translate(80,460)">
+              <rect x="0" y="0" width="320" height="56" rx="12" fill="url(#g2)"/>
+              <text x="20" y="36" font-family="Inter" font-size="16" font-weight="700" fill="#fff">Call: +91-9840674314</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="services container" id="loans-overview">
+      <h2>Our Loan Products</h2>
+      <p class="subtitle">Choose the loan that fits your needs — profile analysis, bank matching, and end-to-end support.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Unsecured Business Loan</h3>
+          <p>Working capital, expansion finance — fast processing for small & medium businesses.</p>
+          <ul class="card-features">
+            <li>Profile analysis & bank matching</li>
+            <li>Lowest rate planning</li>
+            <li>Documentation handling & follow-up</li>
+          </ul>
+          <a href="loans.html#business" class="btn">Learn more</a>
+        </article>
+
+        <article class="card">
+          <h3>Loan Against Property (LAP)</h3>
+          <p>Secured loans with competitive LTV and longer tenors.</p>
+          <ul class="card-features">
+            <li>Mortgage-based financing</li>
+            <li>Flexible repayment options</li>
+            <li>Assistance with valuation & docs</li>
+          </ul>
+          <a href="loans.html#lap" class="btn">Learn more</a>
+        </article>
+
+        <article class="card">
+          <h3>Home Loan</h3>
+          <p>Buy, build or renovate — tailored EMIs and guidance through disbursement.</p>
+          <ul class="card-features">
+            <li>High loan-to-value support</li>
+            <li>Custom repayment plans</li>
+            <li>Dedicated support till disbursal</li>
+          </ul>
+          <a href="loans.html#home" class="btn">Learn more</a>
+        </article>
+
+        <article class="card">
+          <h3>OD / CC Facility</h3>
+          <p>Overdraft and cash-credit solutions for working capital flexibility.</p>
+          <a href="loans.html#odcc" class="btn">Learn more</a>
+        </article>
+
+        <article class="card">
+          <h3>CGTMSE Loan</h3>
+          <p>Government-backed MSME loans with simplified collateral-free options.</p>
+          <a href="loans.html#cgtmse" class="btn">Learn more</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="why container">
+      <h2>Why choose Siddyazh Enterprises?</h2>
+      <div class="why-grid">
+        <div>
+          <h3>Tie-ups with 46 Banks & NBFCs</h3>
+          <p>Wide lender network to find the right match and best rates for your profile.</p>
+        </div>
+        <div>
+          <h3>12+ Years Banking Experience</h3>
+          <p>Founder has deep banking experience across leading banks and NBFCs.
+</p>
+        </div>
+        <div>
+          <h3>4+ Years Loan Consultancy</h3>
+          <p>400+ happy customers — fast approvals, transparent process, end-to-end service.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="process container">
+      <h2>Our Process</h2>
+      <ol>
+        <li>Profile Review</li>
+        <li>Bank Mapping</li>
+        <li>Lowest Rate Planning</li>
+        <li>Documentation Support</li>
+        <li>Approval & Disbursement</li>
+      </ol>
+    </section>
+
+    <section class="lead-form container">
+      <div class="lead-inner">
+        <div class="lead-copy">
+          <h2>Get a free consultation</h2>
+          <p>Fill in a few details and one of our loan advisors will contact you.</p>
+        </div>
+        <form class="form" action="#" method="post" id="leadForm">
+          <label>
+            Full name
+            <input type="text" name="name" required>
+          </label>
+          <label>
+            Phone
+            <input type="tel" name="phone" required>
+          </label>
+          <label>
+            Email
+            <input type="email" name="email">
+          </label>
+          <label>
+            Loan type
+            <select name="loanType">
+              <option>Unsecured Business Loan</option>
+              <option>Loan Against Property (LAP)</option>
+              <option>Home Loan</option>
+              <option>OD / CC Facility</option>
+              <option>CGTMSE Loan</option>
+            </select>
+          </label>
+          <button type="submit" class="btn primary">Request call back</button>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- WhatsApp floating button -->
+  <a class="whatsapp-float" href="https://wa.me/919840674314" target="_blank" aria-label="Chat on WhatsApp">💬</a>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="foot-left">
+        <img src="assets/logo.svg" alt="Siddyazh" class="logo-sm">
+        <p>© <span id="year"></span> SIDDYAZH ENTERPRISES. All rights reserved.</p>
+        <p>Proprietor: Mr. Ayyappan • Phone: +91-9840674314 • Email: ayappan802@gmail.com</p>
+        <p>No. 20, Annai Illam, Randran Nagar Main Road, Keelkattalai, Chennai – 600117</p>
+      </div>
+      <div class="foot-right">
+        <nav>
+          <a href="about.html">About</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    document.querySelector('.mobile-toggle').addEventListener('click', function(){
+      document.querySelector('.nav').classList.toggle('open');
+    });
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Simple form submit (demo)
+    document.getElementById('leadForm').addEventListener('submit', function(e){
+      e.preventDefault();
+      alert('Thanks! We\'ll contact you soon. (This is a demo - wire up to your CRM.)');
+      this.reset();
+    });
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

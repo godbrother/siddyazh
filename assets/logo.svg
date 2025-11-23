@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="80" viewBox="0032080" preserveAspectRatio="xMinYMid meet">
+ <defs>
+ <linearGradient id="lg" x1="0" x2="1">
+ <stop offset="0" stop-color="#0d6efd"/>
+ <stop offset="1" stop-color="#4f8cff"/>
+ </linearGradient>
+ </defs>
+
+ <!-- mark -->
+ <rect x="8" y="8" width="64" height="64" rx="12" fill="url(#lg)" />
+ <g transform="translate(24,22)" fill="#fff">
+ <rect x="0" y="0" width="26" height="8" rx="2" />
+ <rect x="0" y="12" width="18" height="8" rx="2" />
+ </g>
+
+ <!-- wordmark -->
+ <g transform="translate(92,44)">
+ <text x="0" y="0" font-family="Inter, Arial, sans-serif" font-weight="700" font-size="20" fill="#0f1724">SIDDYAZH</text>
+ <text x="0" y="18" font-family="Inter, Arial, sans-serif" font-weight="600" font-size="10" fill="#6b7280">ENTERPRISES</text>
+ </g>
+</svg>

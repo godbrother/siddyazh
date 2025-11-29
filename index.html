@@ -1267,6 +1267,72 @@
                 transform: scale(0.98);
             }
 
+        /* ---- Make select match other inputs ---- */
+        .form-group select,
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 14px;
+            border: 2px solid #e0f2fe;
+            border-radius: 8px;
+            font-family: inherit;
+            background: #ffffff;
+            transition: border-color 0.18s ease, box-shadow 0.18s ease;
+            box-sizing: border-box;
+            color: #0c4a6e;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        /* Keep textarea behavior (already exists) */
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        /* Add right padding so the caret/icon doesn't overlap text */
+        .form-group select {
+            padding-right: 40px;
+        }
+
+        /* Custom caret (SVG data URI). Adjust color if needed. */
+        .form-group select {
+            background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 20 20'><path fill='%230c4a6e' d='M5 7l5 5 5-5z'/></svg>");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 12px 12px;
+        }
+
+            /* Focus state (matches inputs) */
+            .form-group input:focus,
+            .form-group select:focus,
+            .form-group textarea:focus {
+                outline: none;
+                border-color: #0ea5e9;
+                box-shadow: 0 6px 18px rgba(14,165,233,0.12);
+            }
+
+        /* Smooth show/hide for company field */
+        #company-group {
+            transition: max-height 0.22s ease, opacity 0.18s ease, transform 0.18s ease;
+            overflow: hidden;
+        }
+
+            #company-group[style*="display:none"] {
+                max-height: 0;
+                opacity: 0;
+                transform: translateY(-6px);
+            }
+
+            #company-group[style*="display:block"] {
+                max-height: 240px;
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+
         /* Privacy Policy */
         .privacy-container {
             max-width: 900px;
@@ -1400,7 +1466,7 @@
                 <div class="nav-links">
                     <a class="nav-link active" data-page="home">Home</a> <a class="nav-link" data-page="loans">Loans</a> <a class="nav-link" data-page="calculator">EMI Calculator</a> <a class="nav-link" data-page="about">About Us</a> <a class="nav-link" data-page="contact">Contact</a> <a class="nav-link" data-page="privacy">Privacy Policy</a>
                 </div>
-            </div><a href="https://wa.me/919840674314" target="_blank" rel="noopener noreferrer" class="whatsapp-link"> 📱 +91 98406 74314 </a>
+            </div><a href="https://wa.me/919840674314" target="_blank" rel="noopener noreferrer" class="whatsapp-link"> 📱 +91 98406 74314 </a> <a href="mailto:ayappan802@gmail.com" class="whatsapp-link" style="order: 4;"> 📧 ayappan802@gmail.com </a>
         </div>
     </nav><!-- Home Page -->
     <div class="page active" id="home">
@@ -1643,39 +1709,11 @@
                     <h2>Unsecured Business Loan</h2>
                     <p>Get quick access to business capital without collateral requirements. Perfect for expansion, inventory, or working capital needs.</p>
                     <ul class="loan-features">
-                        <li>Loan amount up to ₹20 crores</li>
+                        <li>Loan amount up to ₹10 crores</li>
                         <li>No collateral required</li>
-                        <li>Flexible tenure up to 25 years</li>
+                        <li>Flexible tenure up to 5 years</li>
                         <li>Quick approval in 48 hours</li>
                         <li>Minimal documentation</li>
-                    </ul>
-                </div>
-                <div class="loan-card">
-                    <div class="loan-icon">
-                        🏢
-                    </div>
-                    <h2>Loan Against Property</h2>
-                    <p>Leverage your property to access substantial funds at competitive interest rates for business or personal requirements.</p>
-                    <ul class="loan-features">
-                        <li>Loan amount up to ₹5 crores</li>
-                        <li>Lower interest rates</li>
-                        <li>Tenure up to 15 years</li>
-                        <li>Residential or commercial property</li>
-                        <li>Flexible repayment options</li>
-                    </ul>
-                </div>
-                <div class="loan-card">
-                    <div class="loan-icon">
-                        🏠
-                    </div>
-                    <h2>Home Loan</h2>
-                    <p>Make your dream home a reality with our affordable home loan solutions and attractive interest rates.</p>
-                    <ul class="loan-features">
-                        <li>Loan amount up to ₹10 crores</li>
-                        <li>Interest rates from 8.5% p.a.</li>
-                        <li>Tenure up to 30 years</li>
-                        <li>Zero prepayment charges</li>
-                        <li>Tax benefits available</li>
                     </ul>
                 </div>
                 <div class="loan-card">
@@ -1685,7 +1723,7 @@
                     <h2>OD / CC Facility</h2>
                     <p>Overdraft and Cash Credit facilities for seamless working capital management and enhanced business liquidity.</p>
                     <ul class="loan-features">
-                        <li>Credit limit up to ₹1 crore</li>
+                        <li>Credit limit up to ₹150 crore</li>
                         <li>Pay interest only on utilized amount</li>
                         <li>Revolving credit facility</li>
                         <li>Quick fund access</li>
@@ -1699,13 +1737,56 @@
                     <h2>CGTMSE Loan</h2>
                     <p>Government-backed collateral-free loans for MSMEs with credit guarantee coverage to support business growth.</p>
                     <ul class="loan-features">
-                        <li>Loan amount up to ₹2 crores</li>
+                        <li>Loan amount up to ₹25 crores</li>
                         <li>85% credit guarantee coverage</li>
                         <li>No collateral or third-party guarantee</li>
                         <li>Lower interest rates</li>
                         <li>Designed for MSMEs</li>
                     </ul>
                 </div>
+                <div class="loan-card">
+                    <div class="loan-icon">
+                        🏢
+                    </div>
+                    <h2>Loan Against Property</h2>
+                    <p>Leverage your property to access substantial funds at competitive interest rates for business or personal requirements.</p>
+                    <ul class="loan-features">
+                        <li>Loan amount up to ₹100 crores</li>
+                        <li>Lower interest rates</li>
+                        <li>Tenure up to 15 years</li>
+                        <li>Residential or commercial property</li>
+                        <li>Flexible repayment options</li>
+                    </ul>
+                </div>
+                <div class="loan-card">
+                    <div class="loan-icon">
+                        🏠
+                    </div>
+                    <h2>Home Loan</h2>
+                    <p>Make your dream home a reality with our affordable home loan solutions and attractive interest rates.</p>
+                    <ul class="loan-features">
+                        <li>Loan amount up to ₹15 crores</li>
+                        <li>Interest rates from 8% p.a.</li>
+                        <li>Tenure up to 30 years</li>
+                        <li>Zero prepayment charges</li>
+                        <li>Tax benefits available</li>
+                    </ul>
+                </div>
+                <div class="loan-card">
+                    <div class="loan-icon">
+                        👨‍💼
+                    </div>
+                    <h2>Personal  Loan</h2>
+                    <p>Unsecured financing to meet personal needs — weddings, medical bills, education, travel or home improvements. Quick approval with flexible repayment options to suit your cashflow.</p>
+                    <ul class="loan-features">
+                        <li>Loan amount up to ₹25 lakhs</li>
+                        <li>Interest rates from 10% p.a.</li>
+                        <li>Tenure up to 5 years</li>
+                        <li>Quick disbursal within 24–48 hours for eligible applicants</li>
+                        <li>Minimal documentation & Balance transfer available</li>
+                    </ul>
+                </div>
+
             </div>
         </div>
     </div><!-- EMI Calculator Page -->
@@ -1932,8 +2013,40 @@
                                 <label for="email">Email Address *</label> <input type="email" id="email" required>
                             </div>
                             <div class="form-group">
-                                <label for="phone">Phone Number</label> <input type="tel" id="phone">
+                                <label for="phone">Phone Number *</label> <input type="tel" id="phone" required>
                             </div>
+
+                            <!--<div class="form-group">
+                                <label for="loanType">Loan type *</label> <select id="loanType" required>
+                                    <option>Unsecured Business Loan</option>
+                                    <option>Loan Against Property (LAP)</option>
+                                    <option>Home Loan</option>
+                                    <option>OD / CC Facility</option>
+                                    <option>CGTMSE Loan</option>
+                                </select>
+                            </div>-->
+                            <div class="form-group">
+                                <label for="loanType">Loan Type *</label>
+                                <select id="loanType" required>
+                                    <option value="Unsecured Business Loan">Unsecured Business Loan</option>
+                                    <option value="OD / CC Facility">OD / CC Facility</option>
+                                    <option value="CGTMSE Loan">CGTMSE Loan</option>
+                                    <option value="Loan Against Property (LAP)">Loan Against Property (LAP)</option>
+                                    <option value="Home Loan">Home Loan</option>
+                                    <option value="Personal Loan">Personal Loan</option>
+                                </select>
+                            </div>
+
+                            <!-- Company Name (hidden by default) -->
+                            <div class="form-group" id="company-group" style="display:none;">
+                                <label for="company">Company Name</label>
+                                <input type="text" id="company">
+                            </div>
+
+                            <!--<div class="form-group">
+                                <label for="company">Company</label> <input type="text" id="company">
+                            </div>-->
+
                             <div class="form-group">
                                 <label for="message">Message *</label> <textarea id="message" required></textarea>
                             </div><button type="submit" class="submit-button">Send Message</button>
@@ -2011,7 +2124,7 @@
         </div>
     </div><!-- Footer -->
     <footer>
-        <p id="footer-text">© 2024 SIDDYAZH ENTERPRISES. All rights reserved. | Proprietor: Mr. Ayyappan</p>
+        <p id="footer-text">© <span id="year"></span> SIDDYAZH ENTERPRISES. All rights reserved. | Proprietor: Mr. Ayyappan</p>
     </footer>
     <script>
         const defaultConfig = {
@@ -2030,6 +2143,9 @@
             contact_title: "Contact Us",
             footer_text: "© 2024 SIDDYAZH ENTERPRISES. All rights reserved. | Proprietor: Mr. Ayyappan"
         };
+
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
 
         // Navigation functionality
         function toggleMenu() {
@@ -2104,13 +2220,13 @@
 
                 const row = tbody.insertRow();
                 row.innerHTML = `
-              <td>${month}</td>
-              <td>${formatCurrency(openingBalance)}</td>
-              <td>${formatCurrency(emi)}</td>
-              <td>${formatCurrency(principalPayment)}</td>
-              <td>${formatCurrency(interestPayment)}</td>
-              <td>${formatCurrency(balance)}</td>
-            `;
+                  <td>${month}</td>
+                  <td>${formatCurrency(openingBalance)}</td>
+                  <td>${formatCurrency(emi)}</td>
+                  <td>${formatCurrency(principalPayment)}</td>
+                  <td>${formatCurrency(interestPayment)}</td>
+                  <td>${formatCurrency(balance)}</td>
+                `;
             }
         }
 
@@ -2145,13 +2261,13 @@
 
                 const row = tbody.insertRow();
                 row.innerHTML = `
-              <td>${year}</td>
-              <td>${formatCurrency(openingBalance)}</td>
-              <td>${formatCurrency(yearlyEMI)}</td>
-              <td>${formatCurrency(yearlyPrincipal)}</td>
-              <td>${formatCurrency(yearlyInterest)}</td>
-              <td>${formatCurrency(balance)}</td>
-            `;
+                  <td>${year}</td>
+                  <td>${formatCurrency(openingBalance)}</td>
+                  <td>${formatCurrency(yearlyEMI)}</td>
+                  <td>${formatCurrency(yearlyPrincipal)}</td>
+                  <td>${formatCurrency(yearlyInterest)}</td>
+                  <td>${formatCurrency(balance)}</td>
+                `;
             }
         }
 
@@ -2434,6 +2550,62 @@
                 sliderInterval = setInterval(autoSlide, 5000);
             });
         }
+
+       
+
+        // Loan type dropdown & company name visibility + required toggle + asterisk
+        const loanTypeSelect = document.getElementById('loanType');
+        const companyInput = document.getElementById('company');
+        const companyGroup = document.getElementById('company-group');
+
+        // Get the label inside company-group
+        const companyLabel = companyGroup.querySelector("label");
+
+        function updateCompanyVisibility() {
+            const value = loanTypeSelect.value;
+
+            const needsCompany = [
+                "Unsecured Business Loan",
+                "OD / CC Facility",
+                "CGTMSE Loan",
+                "Loan Against Property (LAP)"
+            ];
+
+            if (needsCompany.includes(value)) {
+                companyGroup.style.display = "block";
+
+                // Make required
+                companyInput.setAttribute("required", "required");
+
+                // Add asterisk if not already added
+                if (!companyLabel.querySelector(".req-star")) {
+                    const star = document.createElement("span");
+                    star.className = "req-star";
+                    /*star.style.color = "red";*/
+                    star.style.marginLeft = "4px";
+                    star.textContent = "*";
+                    companyLabel.appendChild(star);
+                }
+            } else {
+                companyGroup.style.display = "none";
+
+                // Remove required
+                companyInput.removeAttribute("required");
+                companyInput.value = "";
+
+                // Remove the asterisk if present
+                const star = companyLabel.querySelector(".req-star");
+                if (star) star.remove();
+            }
+        }
+
+        loanTypeSelect.addEventListener("change", updateCompanyVisibility);
+
+        // Run on page load
+        updateCompanyVisibility();
+
+
+
     </script>
     <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9a613b5db6413d23',t:'MTc2NDQxMDE1My4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
 </body>

@@ -291,6 +291,19 @@
             }
         }
 
+        .slide::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.35); /* dark overlay */
+            z-index: 1;
+        }
+
+        .slide-content {
+            position: relative;
+            z-index: 2; /* above overlay */
+        }
+
         /* Slider Navigation */
         .slider-nav {
             position: absolute;
@@ -350,37 +363,109 @@
                 transform: scale(1.05);
             }
 
-        @media (min-width: 769px) {
-            .slider-nav {
-                bottom: 20px;
-                gap: 12px;
-            }
-
-            .slider-dot {
-                width: 12px;
-                height: 12px;
-            }
-
-                .slider-dot.active {
-                    width: 32px;
-                    border-radius: 6px;
-                }
-
-            .slider-arrows {
-                padding: 0 20px;
-            }
-
-            .slider-arrow {
-                width: 48px;
-                height: 48px;
-                font-size: 24px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            }
-
-                .slider-arrow:hover {
-                    transform: scale(1.1);
-                }
+        /* Slide overlay (uses CSS variable --overlay; default provided) */
+        .slide {
+            position: absolute; /* keep as your slider used before */
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transform: translateY(8px);
+            pointer-events: none; /* non-active slides shouldn't be interactive */
+            transition: opacity 0.9s ease, transform 0.9s ease;
+            overflow: hidden;
         }
+
+            /* Overlay: uses CSS var --overlay (RGBA). Default is a soft teal-blue */
+            .slide::before {
+                content: "";
+                position: absolute;
+                inset: 0;
+                z-index: 1;
+                /* default overlay (you can override per-slide with --overlay) */
+                background: linear-gradient(180deg, var(--overlay, rgba(2,132,199,0.48)), rgba(0,0,0,0.06));
+                pointer-events: none;
+            }
+
+            /* Slide content should sit above overlay */
+            .slide .slide-content {
+                position: relative;
+                z-index: 2;
+                /* optional subtle text intro */
+                transform: translateY(4px);
+                transition: transform 0.9s ease;
+            }
+
+            /* Active slide: visible + animated */
+            .slide.active {
+                opacity: 1;
+                transform: translateY(0);
+                pointer-events: auto;
+                animation: none; /* transitions handle fade-in; kept for compatibility */
+            }
+
+                /* When activating, lift the content slightly for a nicer effect */
+                .slide.active .slide-content {
+                    transform: translateY(0);
+                }
+
+        /* Optional keyframe for additional fade-in flavor (if you prefer animation over transition) */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(12px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* If you want to use the keyframe instead, uncomment below and comment .slide.active transform/opacity lines:
+.slide.active { animation: fadeInUp 0.9s cubic-bezier(.2,.9,.2,1) both; pointer-events:auto; }
+*/
+
+        /* Hide the arrows by default and slide them a little */
+        .slider-arrows {
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(8px);
+            transition: opacity 0.35s ease, transform 0.35s ease;
+            z-index: 10;
+        }
+
+        /* Show arrows when hovering the slider container */
+        .slider-container:hover .slider-arrows {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        /* Individual arrow styles + small hover scale */
+        .slider-arrow {
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            will-change: transform, opacity;
+            backface-visibility: hidden;
+        }
+
+            .slider-arrow:hover,
+            .slider-arrow:focus {
+                transform: scale(1.06);
+                box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+                outline: none;
+            }
+
+        /* Make arrows visible on touch devices (no hover) for usability */
+        @media (hover: none) {
+            .slider-arrows {
+                opacity: 1;
+                pointer-events: auto;
+                transform: translateY(0);
+            }
+        }
+
 
         .hero h1 {
             font-size: 28px;
@@ -1475,30 +1560,59 @@
             <div class="slider-container">
                 <div class="slider-wrapper">
                     <!-- Slide 1 -->
-                    <div class="slide active" style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.9), rgba(2, 132, 199, 0.9)), linear-gradient(to right, #0ea5e9, #0284c7);">
+                    <!--<div class="slide active" style="background: linear-gradient(135deg, rgba(14, 165, 233, 0.9), rgba(2, 132, 199, 0.9)), linear-gradient(to right, #0ea5e9, #0284c7);">
                         <div class="slide-content">
                             <h2>Welcome to SIDDYAZH ENTERPRISES</h2>
                             <p>Your trusted partner for all loan solutions in Chennai</p>
                         </div>
+                    </div>-->
+                    <!-- Slide 2 -->
+                    <!--<div class="slide" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.9), rgba(8, 145, 178, 0.9)), linear-gradient(to right, #06b6d4, #0891b2);">
+                        <div class="slide-content">
+                            <h2>Quick Loan Approvals</h2>
+                            <p>Get your business loan approved within 24-48 hours</p>
+                        </div>
+                    </div>-->
+                    <!-- Slide 3 -->
+                    <!--<div class="slide" style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.9), rgba(17, 94, 89, 0.9)), linear-gradient(to right, #14b8a6, #0d9488);">
+                        <div class="slide-content">
+                            <h2>Competitive Interest Rates</h2>
+                            <p>Flexible repayment options tailored to your needs</p>
+                        </div>
+                    </div>-->
+                    <!-- Slide 4 -->
+                    <!--<div class="slide" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(37, 99, 235, 0.9)), linear-gradient(to right, #3b82f6, #2563eb);">
+                        <div class="slide-content">
+                            <h2>Expert Financial Guidance</h2>
+                            <p>Personalized service from Mr. Ayyappan and team</p>
+                        </div>
+                    </div>-->
+                    <!-- Slide 1 -->
+                    <div class="slide active" style="background-image: url('welcome.jpg'); background-size: cover; background-position: center; --overlay: rgba(2,132,199,0.56);">
+                        <div class="slide-content">
+                            <h2>Welcome to <br /> SIDDYAZH ENTERPRISES</h2>
+                            <p>Your trusted partner for all loan solutions in Chennai</p>
+                        </div>
                     </div><!-- Slide 2 -->
-                    <div class="slide" style="background: linear-gradient(135deg, rgba(6, 182, 212, 0.9), rgba(8, 145, 178, 0.9)), linear-gradient(to right, #06b6d4, #0891b2);">
+                    <div class="slide" style="background-image: url('quick.jpg'); background-size: cover; background-position: center; --overlay: rgba(6,182,212,0.48);">
                         <div class="slide-content">
                             <h2>Quick Loan Approvals</h2>
                             <p>Get your business loan approved within 24-48 hours</p>
                         </div>
                     </div><!-- Slide 3 -->
-                    <div class="slide" style="background: linear-gradient(135deg, rgba(20, 184, 166, 0.9), rgba(17, 94, 89, 0.9)), linear-gradient(to right, #14b8a6, #0d9488);">
+                    <div class="slide" style="background-image: url('interest rate.jpg'); background-size: cover; background-position: center; --overlay: rgba(20,184,166,0.42);">
                         <div class="slide-content">
                             <h2>Competitive Interest Rates</h2>
                             <p>Flexible repayment options tailored to your needs</p>
                         </div>
                     </div><!-- Slide 4 -->
-                    <div class="slide" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.9), rgba(37, 99, 235, 0.9)), linear-gradient(to right, #3b82f6, #2563eb);">
+                    <div class="slide" style="background-image: url('support.jpg'); background-size: cover; background-position: center; --overlay: rgba(59,130,246,0.52);">
                         <div class="slide-content">
                             <h2>Expert Financial Guidance</h2>
                             <p>Personalized service from Mr. Ayyappan and team</p>
                         </div>
                     </div>
+
                 </div><!-- Navigation Arrows -->
                 <div class="slider-arrows">
                     <button class="slider-arrow" onclick="changeSlide(-1)">←</button> <button class="slider-arrow" onclick="changeSlide(1)">→</button>
@@ -1881,7 +1995,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <p class="table-scroll-hint">Scroll horizontally to view all columns →</p>
+                        <!--<p class="table-scroll-hint">Scroll horizontally to view all columns →</p>-->
                     </div><!-- Yearly Table -->
                     <div class="table-content" id="yearly-table">
                         <div class="amortization-table-container">
@@ -1900,7 +2014,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <p class="table-scroll-hint">Scroll horizontally to view all columns →</p>
+                        <!--<p class="table-scroll-hint">Scroll horizontally to view all columns →</p>-->
                     </div>
                 </div>
             </div>
@@ -2125,6 +2239,7 @@
     </div><!-- Footer -->
     <footer>
         <p id="footer-text">© <span id="year"></span> SIDDYAZH ENTERPRISES. All rights reserved. | Proprietor: Mr. Ayyappan</p>
+        <!-- Designed By Peri -->
     </footer>
     <script>
         const defaultConfig = {
@@ -2220,13 +2335,13 @@
 
                 const row = tbody.insertRow();
                 row.innerHTML = `
-                  <td>${month}</td>
-                  <td>${formatCurrency(openingBalance)}</td>
-                  <td>${formatCurrency(emi)}</td>
-                  <td>${formatCurrency(principalPayment)}</td>
-                  <td>${formatCurrency(interestPayment)}</td>
-                  <td>${formatCurrency(balance)}</td>
-                `;
+                      <td>${month}</td>
+                      <td>${formatCurrency(openingBalance)}</td>
+                      <td>${formatCurrency(emi)}</td>
+                      <td>${formatCurrency(principalPayment)}</td>
+                      <td>${formatCurrency(interestPayment)}</td>
+                      <td>${formatCurrency(balance)}</td>
+                    `;
             }
         }
 
@@ -2261,13 +2376,13 @@
 
                 const row = tbody.insertRow();
                 row.innerHTML = `
-                  <td>${year}</td>
-                  <td>${formatCurrency(openingBalance)}</td>
-                  <td>${formatCurrency(yearlyEMI)}</td>
-                  <td>${formatCurrency(yearlyPrincipal)}</td>
-                  <td>${formatCurrency(yearlyInterest)}</td>
-                  <td>${formatCurrency(balance)}</td>
-                `;
+                      <td>${year}</td>
+                      <td>${formatCurrency(openingBalance)}</td>
+                      <td>${formatCurrency(yearlyEMI)}</td>
+                      <td>${formatCurrency(yearlyPrincipal)}</td>
+                      <td>${formatCurrency(yearlyInterest)}</td>
+                      <td>${formatCurrency(balance)}</td>
+                    `;
             }
         }
 
@@ -2551,7 +2666,7 @@
             });
         }
 
-       
+
 
         // Loan type dropdown & company name visibility + required toggle + asterisk
         const loanTypeSelect = document.getElementById('loanType');

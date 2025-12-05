@@ -1643,20 +1643,20 @@
 
                         +91 98406 74314
                     </a>
-                </div> <a href="tel:+91442231546099" class="whatsapp-link" > ☎️ +91 44 3154 6099 </a>
+                </div> <a href="tel:+914431546099" class="whatsapp-link"> ☎️ +91 44 3154 6099 </a>
 
-                       <div class="whatsapp-link" style="order: 4;">
-                           <!-- Gmail Icon -->
-                           <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-                               <path d="M6 8h12c.55 0 1 .45 1 1v6c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1V9c0-.55.45-1 1-1z"
-                                     stroke="#fff" stroke-width="2" stroke-linejoin="round" />
-                               <path d="M6 9l6 4 6-4" stroke="#fff" stroke-width="2" stroke-linecap="round" />
-                           </svg>
-                           <a href="mailto:ayappan802@gmail.com">
+                <div class="whatsapp-link" style="order: 4;">
+                    <!-- Gmail Icon -->
+                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+                        <path d="M6 8h12c.55 0 1 .45 1 1v6c0 .55-.45 1-1 1H6c-.55 0-1-.45-1-1V9c0-.55.45-1 1-1z"
+                              stroke="#fff" stroke-width="2" stroke-linejoin="round" />
+                        <path d="M6 9l6 4 6-4" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                    <a href="mailto:ayappan802@gmail.com">
 
-                               ayappan802@gmail.com
-                           </a>
-                       </div>
+                        ayappan802@gmail.com
+                    </a>
+                </div>
             </div>
         </div>
     </nav><!-- Home Page -->
@@ -2237,6 +2237,8 @@
                     </div>
                     <div class="contact-form">
                         <h2>Send Us a Message</h2>
+                        <!--<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfU19ACzlMVdqiaU3B_coFTVP5jY3rsBFzYHxKjKhwknXluQw/viewform?embedded=true" 
+                                width="640" height="952" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>-->
                         <form id="contact-form" onsubmit="handleContactSubmit(event)">
                             <div class="form-group">
                                 <label for="name">Full Name *</label> <input type="text" id="name" required>
@@ -2490,13 +2492,13 @@
 
                 const row = tbody.insertRow();
                 row.innerHTML = `
-                                          <td>${month}</td>
-                                          <td>${formatCurrency(openingBalance)}</td>
-                                          <td>${formatCurrency(emi)}</td>
-                                          <td>${formatCurrency(principalPayment)}</td>
-                                          <td>${formatCurrency(interestPayment)}</td>
-                                          <td>${formatCurrency(balance)}</td>
-                                        `;
+                                              <td>${month}</td>
+                                              <td>${formatCurrency(openingBalance)}</td>
+                                              <td>${formatCurrency(emi)}</td>
+                                              <td>${formatCurrency(principalPayment)}</td>
+                                              <td>${formatCurrency(interestPayment)}</td>
+                                              <td>${formatCurrency(balance)}</td>
+                                            `;
             }
         }
 
@@ -2531,13 +2533,13 @@
 
                 const row = tbody.insertRow();
                 row.innerHTML = `
-                                          <td>${year}</td>
-                                          <td>${formatCurrency(openingBalance)}</td>
-                                          <td>${formatCurrency(yearlyEMI)}</td>
-                                          <td>${formatCurrency(yearlyPrincipal)}</td>
-                                          <td>${formatCurrency(yearlyInterest)}</td>
-                                          <td>${formatCurrency(balance)}</td>
-                                        `;
+                                              <td>${year}</td>
+                                              <td>${formatCurrency(openingBalance)}</td>
+                                              <td>${formatCurrency(yearlyEMI)}</td>
+                                              <td>${formatCurrency(yearlyPrincipal)}</td>
+                                              <td>${formatCurrency(yearlyInterest)}</td>
+                                              <td>${formatCurrency(balance)}</td>
+                                            `;
             }
         }
 
